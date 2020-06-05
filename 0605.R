@@ -24,3 +24,10 @@ y[y$新生註冊率<60,c(6,14)]
 y[y$新生註冊率<60,c('短校名','新生註冊率')]
 subset(y,新生註冊率<60,select=c('短校名','新生註冊率'))
 z=y %>% filter(新生註冊率<60) %>% select(短校名,新生註冊率)
+z=y %>% arrange(desc(新生註冊率)) %>% select(短校名,新生註冊率)
+tail(z,10)
+write.csv(y[,c(5,6)],"schoolname.csv",row.names = F)
+z %>% arrange(新生註冊率)
+z %>% arrange(desc(新生註冊率))
+tail(z)
+boxplot(z$新生註冊率)
